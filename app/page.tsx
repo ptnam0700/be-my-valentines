@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import FloatingHearts from '@/components/floating-hearts'
-import { Heart, Sparkles } from 'lucide-react'
+import { Heart, Mail } from 'lucide-react'
 
 export default function Page() {
+  const [envelopeOpened, setEnvelopeOpened] = useState(false)
   const [answered, setAnswered] = useState(false)
   const [accepted, setAccepted] = useState(false)
   const [openedGifts, setOpenedGifts] = useState<Set<number>>(new Set())
@@ -30,7 +31,24 @@ export default function Page() {
 
       <div className="flex items-center justify-center min-h-screen px-4 py-12">
         <div className="w-full max-w-2xl">
-          {!answered ? (
+          {!envelopeOpened ? (
+            <div className="space-y-8 text-center animate-fadeIn">
+              <p className="text-2xl md:text-3xl font-semibold text-foreground">
+                A secret message for you
+              </p>
+
+              <button
+                onClick={() => setEnvelopeOpened(true)}
+                className="mx-auto flex h-44 w-64 items-center justify-center rounded-3xl bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-rose-300/60 focus:outline-none focus:ring-4 focus:ring-rose-200"
+              >
+                <Mail className="h-20 w-20 text-rose-700" />
+              </button>
+
+              {/* <p className="text-base md:text-lg text-muted-foreground">
+                Click the envelope to open
+              </p> */}
+            </div>
+          ) : !answered ? (
             <div className="space-y-8 flex flex-col items-center justify-center animate-fadeIn">
               {/* Decorative elements */}
               {/* <div className="relative h-32 mb-8">
@@ -105,6 +123,7 @@ export default function Page() {
               <div className="pt-8">
                 <Button
                   onClick={() => {
+                    setEnvelopeOpened(false)
                     setAnswered(false)
                     setAccepted(false)
                   }}
@@ -136,6 +155,7 @@ export default function Page() {
               <div className="pt-8">
                 <Button
                   onClick={() => {
+                    setEnvelopeOpened(false)
                     setAnswered(false)
                     setAccepted(false)
                   }}
