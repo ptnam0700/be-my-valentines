@@ -43,7 +43,7 @@ export default function Page() {
 
               {/* Main question */}
               <div className="space-y-4">
-                <h1 className="text-4xl text-[#CA9469] font-bold text-foreground leading-tight text-balance">
+                <h1 className="text-4xl text-[#CA9469] font-bold leading-tight text-balance">
                   Dear Sâu,
                 </h1>
                 <div className='flex flex-col justify-center'>
