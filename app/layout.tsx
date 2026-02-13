@@ -7,9 +7,8 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Will You Be My Valentine?',
-  description: 'A special Valentine\'s Day proposal',
-  generator: 'v0.app',
+  title: 'a secret message',
+  description: 'a secret message for you',
 }
 
 export default function RootLayout({
